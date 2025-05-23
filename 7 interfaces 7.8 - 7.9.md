@@ -465,7 +465,7 @@ func (c call) Eval(env Env) float64 {
 }
 ```
 
-Several of these methods can fail. For example, a call expression could have an unknown function or the wrong number of arguments. It's also possible to construct a unary or binary expression with an invalid operator such as ! or < (although the Parse function mentioned below will never do this). [1cite: 377, 378] These errors cause Eval to panic. Other errors, like evaluating a Var not present in the environment, merely cause Eval to return the wrong result. All of these errors could be detected by inspecting the Expr before evaluating it. That will be the job of the Check method, which we will show soon, but first let's test Eval.
+Several of these methods can fail. For example, a call expression could have an unknown function or the wrong number of arguments. It's also possible to construct a unary or binary expression with an invalid operator such as ! or < (although the Parse function mentioned below will never do this). These errors cause Eval to panic. Other errors, like evaluating a Var not present in the environment, merely cause Eval to return the wrong result. All of these errors could be detected by inspecting the Expr before evaluating it. That will be the job of the Check method, which we will show soon, but first let's test Eval.
 
 其中一些方法可能会失败。例如，一个`call`表达式可能有一个未知的函数或错误的参数数量。也有可能构造一个带无效运算符（如`!`或`<`）的`unary`或`binary`表达式（尽管下面提到的`Parse`函数永远不会这样做）。这些错误会导致`Eval`引发panic。其他错误，比如对环境中不存在的`Var`求值，仅导致`Eval`返回错误的结果（对于`map`查找失败，返回零值）。所有这些错误都可以在对表达式求值之前通过检查`Expr`来检测。这将是`Check`方法的工作，我们稍后会展示它，但首先让我们测试`Eval`。
 

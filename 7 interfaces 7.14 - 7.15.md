@@ -32,7 +32,7 @@ type Attr struct { // e.g., name="value"
 // Token 是一个接口，涵盖了 StartElement, EndElement, CharData,
 // Comment, ProcInst, 和 Directive 等类型。
 // 原文只列举了部分，这里遵循原文。
-type Token interface{} [cite: 545]
+type Token interface{} 
 
 type StartElement struct { // e.g., <name>
     Name Name
@@ -61,7 +61,7 @@ type Attr struct { // 例如 name="value"
 // Token 是一个接口，涵盖了 StartElement, EndElement, CharData,
 // Comment, ProcInst, 和 Directive 等类型。
 // 原文只列举了部分，这里遵循原文。
-type Token interface{} [cite: 545]
+type Token interface{} 
 
 type StartElement struct { // 例如 <name>
     Name Name
@@ -97,32 +97,32 @@ Go
 
 ```
 // xmlselect prints the text of selected elements of an XML document.
-package main [cite: 553]
+package main 
 
 import (
-    "encoding/xml" [cite: 553]
-    "fmt"          [cite: 553]
-    "io"           [cite: 553]
-    "os"           [cite: 553]
-    "strings"      [cite: 553]
+    "encoding/xml" 
+    "fmt"          
+    "io"           
+    "os"           
+    "strings"      
 )
 
 func main() {
     dec := xml.NewDecoder(os.Stdin)
     var stack []string // stack of element names
     for {
-        tok, err := dec.Token() [cite: 554]
-        if err == io.EOF { [cite: 554]
-            break [cite: 554]
-        } else if err != nil { [cite: 554]
-            fmt.Fprintf(os.Stderr, "xmlselect: %v\n", err) [cite: 554]
-            os.Exit(1)                                     [cite: 554]
+        tok, err := dec.Token() 
+        if err == io.EOF { 
+            break 
+        } else if err != nil { 
+            fmt.Fprintf(os.Stderr, "xmlselect: %v\n", err) 
+            os.Exit(1)                                     
         }
-        switch tok := tok.(type) { [cite: 555]
-        case xml.StartElement: [cite: 555]
-            stack = append(stack, tok.Name.Local) // push [cite: 555]
-        case xml.EndElement: [cite: 556]
-            stack = stack[:len(stack)-1] // pop [cite: 556]
+        switch tok := tok.(type) { 
+        case xml.StartElement: 
+            stack = append(stack, tok.Name.Local) // push 
+        case xml.EndElement: 
+            stack = stack[:len(stack)-1] // pop 
         case xml.CharData:
             if containsAll(stack, os.Args[1:]) {
                 fmt.Printf("%s: %s\n", strings.Join(stack, " "), tok) // tok is []byte
@@ -138,32 +138,32 @@ Go
 
 ```
 // xmlselect prints the text of selected elements of an XML document.
-package main [cite: 553]
+package main 
 
 import (
-    "encoding/xml" [cite: 553]
-    "fmt"          [cite: 553]
-    "io"           [cite: 553]
-    "os"           [cite: 553]
-    "strings"      [cite: 553]
+    "encoding/xml" 
+    "fmt"          
+    "io"           
+    "os"           
+    "strings"      
 )
 
 func main() {
     dec := xml.NewDecoder(os.Stdin)
     var stack []string // stack of element names
     for {
-        tok, err := dec.Token() [cite: 554]
-        if err == io.EOF { [cite: 554]
-            break [cite: 554]
-        } else if err != nil { [cite: 554]
-            fmt.Fprintf(os.Stderr, "xmlselect: %v\n", err) [cite: 554]
-            os.Exit(1)                                     [cite: 554]
+        tok, err := dec.Token() 
+        if err == io.EOF { 
+            break 
+        } else if err != nil { 
+            fmt.Fprintf(os.Stderr, "xmlselect: %v\n", err) 
+            os.Exit(1)                                     
         }
-        switch tok := tok.(type) { [cite: 555]
-        case xml.StartElement: [cite: 555]
-            stack = append(stack, tok.Name.Local) // push [cite: 555]
-        case xml.EndElement: [cite: 556]
-            stack = stack[:len(stack)-1] // pop [cite: 556]
+        switch tok := tok.(type) { 
+        case xml.StartElement: 
+            stack = append(stack, tok.Name.Local) // push 
+        case xml.EndElement: 
+            stack = stack[:len(stack)-1] // pop 
         case xml.CharData:
             if containsAll(stack, os.Args[1:]) {
                 fmt.Printf("%s: %s\n", strings.Join(stack, " "), tok) // tok 是 []byte
@@ -177,17 +177,17 @@ Go
 
 ```
 // containsAll reports whether x contains the elements of y, in order.
-func containsAll(x, y []string) bool { [cite: 558]
-    for len(y) <= len(x) { [cite: 558]
-        if len(y) == 0 { [cite: 558]
-            return true [cite: 558]
+func containsAll(x, y []string) bool { 
+    for len(y) <= len(x) { 
+        if len(y) == 0 { 
+            return true 
         }
-        if x[0] == y[0] { [cite: 558]
-            y = y[1:] [cite: 558]
+        if x[0] == y[0] { 
+            y = y[1:] 
         }
-        x = x[1:] [cite: 558]
+        x = x[1:] 
     }
-    return false [cite: 558]
+    return false 
 }
 ```
 
@@ -195,17 +195,17 @@ Go
 
 ```
 // containsAll reports whether x contains the elements of y, in order.
-func containsAll(x, y []string) bool { [cite: 558]
-    for len(y) <= len(x) { [cite: 558]
-        if len(y) == 0 { [cite: 558]
-            return true [cite: 558]
+func containsAll(x, y []string) bool { 
+    for len(y) <= len(x) { 
+        if len(y) == 0 { 
+            return true 
         }
-        if x[0] == y[0] { [cite: 558]
-            y = y[1:] [cite: 558]
+        if x[0] == y[0] { 
+            y = y[1:] 
         }
-        x = x[1:] [cite: 558]
+        x = x[1:] 
     }
-    return false [cite: 558]
+    return false 
 }
 ```
 
@@ -220,7 +220,7 @@ Bash
 ```
 $ go build gopl.io/ch1/fetch # assume fetch program already compiled
 $ ./fetch http://www.w3.org/TR/2006/REC-xml11-20060816 | \
-  ./xmlselect div div h2 [cite: 563]
+  ./xmlselect div div h2 
 html body div div h2: 1 Introduction
 html body div div h2: 2 Documents
 html body div div h2: 3 Logical Structures
@@ -238,7 +238,7 @@ Bash
 ```
 $ go build gopl.io/ch1/fetch # assume fetch program already compiled
 $ ./fetch http://www.w3.org/TR/2006/REC-xml11-20060816 | \
-  ./xmlselect div div h2 [cite: 563]
+  ./xmlselect div div h2 
 html body div div h2: 1 Introduction
 html body div div h2: 2 Documents
 html body div div h2: 3 Logical Structures
@@ -260,16 +260,16 @@ You may find the following declarations helpful.
 Go
 
 ```
-import "encoding/xml" [cite: 566]
+import "encoding/xml" 
 
-type Node interface{} // CharData or *Element [cite: 567]
+type Node interface{} // CharData or *Element 
 
-type CharData string [cite: 567]
+type CharData string 
 
-type Element struct { [cite: 567]
-    Type     xml.Name   [cite: 567]
-    Attr     []xml.Attr [cite: 567]
-    Children []Node     [cite: 567]
+type Element struct { 
+    Type     xml.Name   
+    Attr     []xml.Attr 
+    Children []Node     
 }
 ```
 
@@ -280,16 +280,16 @@ type Element struct { [cite: 567]
 Go
 
 ```
-import "encoding/xml" [cite: 566]
+import "encoding/xml" 
 
-type Node interface{} // CharData or *Element [cite: 567]
+type Node interface{} // CharData or *Element 
 
-type CharData string [cite: 567]
+type CharData string 
 
-type Element struct { [cite: 567]
-    Type     xml.Name   [cite: 567]
-    Attr     []xml.Attr [cite: 567]
-    Children []Node     [cite: 567]
+type Element struct { 
+    Type     xml.Name   
+    Attr     []xml.Attr 
+    Children []Node     
 }
 ```
 
