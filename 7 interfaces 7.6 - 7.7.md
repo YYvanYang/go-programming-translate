@@ -1,7 +1,3 @@
-Okay, I have updated the Chinese translation based on the previous proofreading comments, primarily ensuring that comments within code blocks are identical to the English original (and not translated or added), and removing any "校对注".
-
-Here is the revised output:
-
 ## 7.6 Sorting with sort.Interface
 
 Like string formatting, sorting is a frequently used operation in many programs.  Although a minimal Quicksort can be written in about 15 lines, a robust implementation is much longer, and it is not the kind of code we should wish to write anew or copy each time we need it.  Fortunately, the sort package provides in-place sorting of any sequence according to any ordering function.  Its design is rather unusual.  In many languages, the sorting algorithm is associated with the sequence data type, while the ordering function is associated with the type of the elements.  By contrast, Go's sort.Sort function assumes nothing about the representation of either the sequence or its elements.  Instead, it uses an interface, sort.Interface, to specify the contract between the generic sort algorithm and each sequence type that may be sorted.  An implementation of this interface determines both the concrete representation of the sequence, which is often a slice, and the desired ordering of its elements. 

@@ -1,7 +1,3 @@
-Okay, I have updated the Chinese translation based on the proofreading comments. The "校对注" and "校对意见" sections have been removed. Here is the corrected content:
-
----
-
 **7.8. The error Interface**
 
 Since the beginning of this book, we've been using and creating values of the mysterious predeclared error type without explaining what it really is. In fact, it's just an interface type with a single method that returns an error message:

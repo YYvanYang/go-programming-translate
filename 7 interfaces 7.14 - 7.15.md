@@ -1,7 +1,3 @@
-好的，我已经将之前校对意见中指出的需要修正的部分更新到中文译文中，并移除了“校对注”和“校对意见”部分。以下是更新后的完整内容以及各节的核心要点总结。
-
----
-
 **7.14. Example: Token-Based XML Decoding**
 
 Section 4.5 showed how to decode JSON documents into Go data structures with the Marshal and Unmarshal functions from the encoding/json package. The encoding/xml package provides a similar API. This approach is convenient when we want to construct a representation of the document tree, but that's unnecessary for many programs. The encoding/xml package also provides a lower-level token-based API for decoding XML. In the token-based style, the parser consumes the input and produces a stream of tokens, primarily of four kinds—StartElement, EndElement, CharData, and Comment—each being a concrete type in the encoding/xml package. Each call to (*xml.Decoder).Token returns a token.

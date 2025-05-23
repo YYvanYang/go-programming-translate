@@ -1,7 +1,3 @@
-好的，这是更新后的译文，已根据之前的校对意见进行了修正，并移除了“校对意见”和“我的解读”部分。
-
----
-
 **第7章 接口 (Interfaces)**
 
 Interface types express generalizations or abstractions about the behaviors of other types.  By generalizing, interfaces let us write functions that are more flexible and adaptable because they are not tied to the details of one particular implementation.  Many object-oriented languages have some notion of interfaces, but what makes Go's interfaces so distinctive is that they are satisfied implicitly.  In other words, there's no need to declare all the interfaces that a given concrete type satisfies;  simply possessing the necessary methods is enough.  This design lets you create new interfaces that are satisfied by existing concrete types without changing the existing types, which is particularly useful for types defined in packages that you don't control.  In this chapter, we'll start by looking at the basic mechanics of interface types and their values.  Along the way, we'll study several important interfaces from the standard library.  Many Go programs make as much use of standard interfaces as they do of their own ones.  Finally, we'll look at type assertions (§7.10) and type switches (§7.13) and see how they enable a different kind of generality. 
